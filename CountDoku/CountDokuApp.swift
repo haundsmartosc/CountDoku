@@ -11,7 +11,7 @@ import SwiftUI
 struct CountDokuApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashView()
         }
     }
 }
