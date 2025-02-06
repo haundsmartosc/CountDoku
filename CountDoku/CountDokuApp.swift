@@ -7,11 +7,22 @@
 
 import SwiftUI
 
+
 @main
 struct CountDokuApp: App {
+        
+    @StateObject private var databaseHelper = DatabaseHelper()
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            SplashScreenView()
+                .environmentObject(databaseHelper)
         }
+    }
+}
+
+final class DatabaseHelper: ObservableObject {
+    var dbPointer: OpaquePointer?
+    init() {
+        dbPointer = DBHelper.getDatabasePointer(databaseName: "levels.db")
     }
 }
